@@ -39,7 +39,8 @@ class GoogleAuthentication:
             scope=[
                 "https://www.googleapis.com/auth/plus.me",
                 "https://www.googleapis.com/auth/userinfo.email",
-            ]
+            ],
+            offline=True
         )
 
     def _register_blueprint(self):
