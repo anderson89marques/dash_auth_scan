@@ -1,0 +1,16 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "dash_auth_scan"
+author = "Anderson Marques Morais"
+author-email = "andersonoanjo18@gmail.com"
+home-page = "https://github.com/anderson89marques/dash_auth_scan"
+requires = [
+    "dash==0.26.3",
+    "dash-core-components==0.28.0",
+    "dash-html-components==0.12.0",
+    "Flask-Dance==1.0.0",
+]
+description-file="README.md"
