@@ -1,15 +1,21 @@
 """Configure routes and google authentication"""
 
+import logging
+
 import dash
 import dash_auth_scan
 import dash_core_components as dcc
 import dash_html_components as html
 import requests
 from dash.dependencies import Input, Output
+from dash_auth_scan.scan import Scan
 from flask import redirect, session, url_for
 from flask_dance.contrib.google import google, make_google_blueprint
 
-from dash_auth_scan.scan import Scan
+LOG = logging.getLogger(__name__)
+LOG.setLevel(logging.DEBUG)
+CH = logging.StreamHandler()
+LOG.addHandler(CH)
 
 
 class GoogleAuthParams:
@@ -58,7 +64,7 @@ class GoogleAuthentication:
         return href_
 
     def logout(self):
-        print('logout')
+        LOG.debug('logout')
         requests.post(
             "https://accounts.google.com/o/oauth2/revoke",
             params={"token": self.blueprint.token["access_token"]}
